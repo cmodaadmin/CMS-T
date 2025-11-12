@@ -1,26 +1,26 @@
 import { Routes } from '@angular/router';
-import { VendorDashboardComponent } from './dashboard/dashboard';
-import { VendorProfileComponent } from './profile/profile';
-import { VendorSubscriptionComponent } from './subscription/subscription';
-import { VendorPortfolioComponent } from './portfolio/portfolio';
-import { VendorRfqsBrowserComponent } from './rfqs-browser/rfqs-browser';
-import { VendorRfqDetailComponent } from './rfq-detail/rfq-detail';
-import { VendorBidsManagementComponent } from './bids-management/bids-management';
-import { VendorOrdersComponent } from './orders/orders';
-import { VendorMessagesComponent } from './messages/messages';
-import { VendorNotificationsComponent } from './notifications/notifications';
-import { VendorEarningsComponent } from './earnings/earnings';
+import { Dashboard } from './dashboard/dashboard';
+import { Profile } from './profile/profile';
+import { Subscription } from './subscription/subscription';
+import { Portfolio } from './portfolio/portfolio';
+import { RfqsBrowser } from './rfqs-browser/rfqs-browser';
+import { RfqDetail } from './rfq-detail/rfq-detail';
+import { BidsManagement } from './bids-management/bids-management';
+import { Orders } from './orders/orders';
+import { Messages } from './messages/messages';
+import { Notifications } from './notifications/notifications';
+import { Earnings } from './earnings/earnings';
 
 export const vendorRoutes: Routes = [
-    { path: 'dashboard', component: VendorDashboardComponent },
-    { path: 'profile', component: VendorProfileComponent },
-    { path: 'subscription', component: VendorSubscriptionComponent },
-    { path: 'portfolio', component: VendorPortfolioComponent },
-    { path: 'rfqs', component: VendorRfqsBrowserComponent },
-    { path: 'rfq/:id', component: VendorRfqDetailComponent },
-    { path: 'bids', component: VendorBidsManagementComponent },
-    { path: 'orders', component: VendorOrdersComponent },
-    { path: 'messages', component: VendorMessagesComponent },
-    { path: 'notifications', component: VendorNotificationsComponent },
-    { path: 'earnings', component: VendorEarningsComponent }
+    { path: 'dashboard', component: Dashboard },
+    { path: 'profile', component: Profile },
+    { path: 'subscription', component: Subscription },
+    { path: 'portfolio', component: Portfolio },
+    { path: 'rfqs', component: RfqsBrowser },
+    { path: 'rfq/:id', component: RfqDetail },
+    { path: 'bids', component: BidsManagement },
+    { path: 'orders', component: Orders },
+    { path: 'messages', component: Messages },
+    { path: 'notifications', component: Notifications },
+    { path: 'earnings', component: Earnings }
 ];
