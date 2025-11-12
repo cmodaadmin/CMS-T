@@ -1,59 +1,118 @@
-# RultivateFrontend
+# Rultivate Marketplace
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.9.
+Welcome to Rultivate, a full-stack marketplace platform built for the Indian market. This application connects customers with verified vendors, facilitating a seamless process for posting requirements, receiving bids, and managing orders.
 
-## Development server
+The platform is architected with a modern Angular frontend and a robust, framework-less Core PHP backend, ensuring performance and scalability.
 
-To start a local development server, run:
+## Technologies Used
 
-```bash
-ng serve
-```
+*   **Frontend:** Angular
+*   **Backend:** Core PHP (No Frameworks)
+*   **Database:** MySQL
+*   **Authentication:** JSON Web Tokens (JWT)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Key Features
 
-## Code scaffolding
+### For Guests (Public Users)
+- **Browse Vendor Directory:** Search and filter approved vendors.
+- **View Public Portfolios:** See vendor details, services, and reviews.
+- **Static Pages:** Access Home, About Us, How It Works, Pricing, FAQs, and Contact pages.
+- **User Authentication:** Unified portal for Login, Customer Registration, and Vendor Registration.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### For Customers
+- **Dashboard:** At-a-glance view of RFQs, bids, and orders.
+- **RFQ Management:** Create, publish, and manage Requests for Quotation.
+- **Bid Management:** Receive, compare, accept, and reject bids from vendors.
+- **Order Tracking:** Monitor the status of active and completed orders.
+- **Secure Messaging:** Communicate with vendors regarding specific RFQs or orders.
+- **Vendor Reviews:** Leave ratings and feedback for completed orders.
 
-```bash
-ng generate component component-name
-```
+### For Vendors
+- **Dashboard:** Overview of available RFQs, bids placed, and active orders.
+- **Profile Management:** Manage business details, service categories, and KYC documents.
+- **Portfolio Management:** Showcase services, projects, and client testimonials.
+- **RFQ Browser:** Find and bid on RFQs relevant to your services.
+- **Order Fulfillment:** Update order status from acceptance to completion.
+- **Subscription Management:** View and manage subscription plans.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### For Admins & Department Roles
+- **Super Admin Dashboard:** High-level overview of platform activity.
+- **User Management:** Create, view, and manage all user accounts and roles.
+- **Vendor Approval:** Review and approve/reject new vendor registrations and KYC.
+- **Platform Monitoring:** Oversee all RFQs, bids, and orders.
+- **Content Management:** Manage content for static pages like About Us, FAQs, etc.
+- **Finance & Subscriptions:** Manage subscription plans and view payment statuses.
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## Setup and Installation
 
-To build the project run:
+Follow these instructions to set up the project on your local development machine.
 
-```bash
-ng build
-```
+### Prerequisites
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- **Web Server:** Apache (or equivalent like Nginx). XAMPP or WAMP are good options.
+- **Database:** MySQL or MariaDB.
+- **Backend Language:** PHP (version 8.0 or newer recommended).
+- **Frontend Framework:** Node.js (v18 or newer recommended) and Angular CLI.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Backend Setup
 
-```bash
-ng test
-```
+1.  **Start Your Web Server:**
+    -   Ensure your Apache and MySQL services are running.
 
-## Running end-to-end tests
+2.  **Create the Database:**
+    -   Open phpMyAdmin (or your preferred MySQL client).
+    -   Create a new database named `rultivate`.
+    -   Import the `schema.sql` file located in the root of the project into the `rultivate` database. This will create all the necessary tables.
 
-For end-to-end (e2e) testing, run:
+3.  **Configure Database Connection:**
+    -   Navigate to `api/config/` and open the `database.php` file.
+    -   Update the following variables with your local database credentials:
+        ```php
+        private $host = "localhost";
+        private $db_name = "rultivate";
+        private $username = "root"; // Your DB username
+        private $password = "";     // Your DB password
+        ```
 
-```bash
-ng e2e
-```
+4.  **Set JWT Secret Key:**
+    -   For security, you must set a secret key for JWT encoding and decoding.
+    -   Open `api/login.php` and `api/middleware/auth.php`.
+    -   Replace the placeholder string `"YOUR_SECRET_KEY"` with a strong, unique secret key of your choice. Ensure it is the same in both files.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+5.  **Place Backend Files:**
+    -   Copy the `api` folder and the `vendor` folder (generated by Composer) into the root directory of your web server (e.g., `htdocs` for XAMPP).
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Frontend Setup
+
+1.  **Install Dependencies:**
+    -   Open a terminal in the root directory of the project.
+    -   Run the following command to install all the required Node.js packages:
+        ```bash
+        npm install
+        ```
+
+2.  **Run the Development Server:**
+    -   Once the installation is complete, start the Angular development server:
+        ```bash
+        ng serve
+        ```
+    -   The application will be available at `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+3.  **Building for Production:**
+    -   To create a production-ready build, run:
+        ```bash
+        ng build --configuration production
+        ```
+    -   The build artifacts will be stored in the `dist/rultivate-frontend/` directory.
+
+---
+
+## Deployment
+
+For instructions on deploying this application to a live server using cPanel, please refer to the `deployment_instructions.md` file.
